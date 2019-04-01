@@ -24,5 +24,21 @@ class UserFixtures extends Fixture
         $encodedPassword = $this->passwordEncoder->encodePassword($user1, $plainTextPassword);
         $user1->setPassword($encodedPassword);
         $manager->persist($user1); $manager->flush();
+
+        $user2 = new User();
+        $user2->setUsername('manager');
+        $user2->setRoles(['ROLE_MANAGER']);
+        $plainTextPassword = 'manager';
+        $encodedPassword = $this->passwordEncoder->encodePassword($user2, $plainTextPassword);
+        $user2->setPassword($encodedPassword);
+        $manager->persist($user2); $manager->flush();
+
+        $user3 = new User();
+        $user3->setUsername('director');
+        $user3->setRoles(['ROLE_DIRECTOR']);
+        $plainTextPassword = 'director';
+        $encodedPassword = $this->passwordEncoder->encodePassword($user3, $plainTextPassword);
+        $user3->setPassword($encodedPassword);
+        $manager->persist($user3); $manager->flush();
     }
 }

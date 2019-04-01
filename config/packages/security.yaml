@@ -3,6 +3,10 @@ security:
         App\Entity\User:
             algorithm: argon2i
 
+    role_hierarchy:
+        ROLE_MANAGER: ROLE_CLERK
+        ROLE_DIRECTOR: ROLE_MANAGER
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         # used to reload user from session & other features (e.g. switch_user)
@@ -25,6 +29,8 @@ security:
             logout:
                 path: /logout
                 target: /
+
+            access_denied_handler: App\Security\AccessDeniedHandler
 
             http_basic: true
 

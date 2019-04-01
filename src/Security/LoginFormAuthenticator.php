@@ -85,6 +85,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             if ('ROLE_CLERK' == $role->getRole()) {
                 return new RedirectResponse($this->urlGenerator->generate('sales'));
             }
+            if ('ROLE_MANAGER' == $role->getRole()) {
+                return new RedirectResponse($this->urlGenerator->generate('salaries'));
+            }
+            if ('ROLE_DIRECTOR' == $role->getRole()) {
+                return new RedirectResponse($this->urlGenerator->generate('offshore'));
+            }
         }
         return new RedirectResponse($this->urlGenerator->generate('home'));
     }
