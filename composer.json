@@ -68,7 +68,9 @@
         }
     },
     "require-dev": {
+        "codeception/codeception": "^2.5",
         "symfony/maker-bundle": "^1.11",
+        "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "4.2.*"
     }
 }
