@@ -1,0 +1,16 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+app_logout:
+  path: /logout
+  # need to use http://localhost:8000/logout
+  # when using http-basic authenticated firewalls, there is no real way to log out
+  # the only way to log out is to have the browser stop sending name and password on every request.
+  # Clearing browser cache or restarting browser usually helps.
+  methods: GET
+
+login:
+  path:       /login
+  controller: App\Controller\SecurityController::login
+  methods: GET|POST
